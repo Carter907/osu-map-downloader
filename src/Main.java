@@ -1,18 +1,12 @@
-import java.awt.*;
-import java.util.*;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.*;
-import java.util.function.*;
-import java.net.*;
-import java.io.*;
-import java.util.regex.*;
-import java.math.*;
-import java.nio.*;
-import java.sql.*;
-import java.nio.file.*;
-import java.nio.channels.*;
-import java.nio.charset.*;
-import java.time.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -43,7 +37,16 @@ public class Main {
         int startMapId = Math.max(arg1, arg2), endMapId = Math.min(arg1, arg2);
 
         for (int i = startMapId; i >= endMapId; i--) {
-            String zipUrl = "https://packs.ppy.sh/S" + i + "%20-%20osu%21%20Beatmap%20Pack%20%23" + i + ".zip";
+            String zipUrl;
+
+            if (i < 1300) {
+                zipUrl = "https://packs.ppy.sh/S" + i + "%20-%20osu%21%20Beatmap%20Pack%20%23" + i + ".7z";
+
+            } else {
+                zipUrl = "https://packs.ppy.sh/S" + i + "%20-%20osu%21%20Beatmap%20Pack%20%23" + i + ".zip";
+
+            }
+            // https://packs.ppy.sh/S1282%20-%20Beatmap%20Pack%20%231282.7z
 
             Thread thread = Thread.ofVirtual().start(() -> {
                 try (var zipInputStream = new ZipInputStream(new URL(zipUrl).openStream())) {
