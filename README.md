@@ -12,5 +12,5 @@ jar file that automatically downloads osu maps given a range of ids and a destin
 ```jshell
 java -jar osu-map-downloader.jar [startId] [endId] [path-to-directory]
 ```
-- the ordering of the ids doesn't matter as long as they are valid and found on [the Osu! beatmaps website](https://osu.ppy.sh/beatmaps/packs)
+- the ordering of the ids doesn't matter as long as they are valid and found on [the OSU! beatmaps website](https://osu.ppy.sh/beatmaps/packs)
 
