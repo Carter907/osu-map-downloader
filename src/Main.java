@@ -42,6 +42,9 @@ public class Main {
             if (i < 1300) {
                 zipUrl = "https://packs.ppy.sh/S" + i + "%20-%20Beatmap%20Pack%20%23" + i + ".7z";
 
+            } else if (i < 1318) {
+
+                zipUrl = "https://packs.ppy.sh/S" + i + "%20-%20Beatmap%20Pack%20%23" + i + ".zip";
             } else {
                 zipUrl = "https://packs.ppy.sh/S" + i + "%20-%20osu%21%20Beatmap%20Pack%20%23" + i + ".zip";
 
