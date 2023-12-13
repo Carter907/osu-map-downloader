@@ -22,8 +22,7 @@ public class Main {
         if (args.length != 3) {
             System.err.println("""
                     please enter 3 arguments: a map start id, a map end id, a destination path
-                    (note: ids are traversed from latest to oldest meaning your start id should
-                    be greater than your end id)
+                    
                     """);
             System.exit(1);
         } else if (!args[0].matches("\\d+")) {
@@ -39,7 +38,9 @@ public class Main {
             System.exit(1);
         }
         List<Thread> threads = new LinkedList<>();
-        int startMapId = Integer.parseInt(args[0]), endMapId = Integer.parseInt(args[1]);
+        int arg1 = Integer.parseInt(args[0]), arg2 = Integer.parseInt(args[1]);
+
+        int startMapId = Math.max(arg1, arg2), endMapId = Math.min(arg1, arg2);
 
         for (int i = startMapId; i >= endMapId; i--) {
             String zipUrl = "https://packs.ppy.sh/S" + i + "%20-%20osu%21%20Beatmap%20Pack%20%23" + i + ".zip";
